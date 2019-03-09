@@ -10,3 +10,5 @@ const String GITHUB_URL = "https://github.com/cuongpm/flutter-tech-news";
 const String ISSUE_URL = "https://github.com/cuongpm/flutter-tech-news/issues";
 const String EMAIL_URL =
     "mailto:<minhcuong2910@gmail.com>?subject=TodoApp%20Query&body=Hi";
+const String PROFILE_PICTURE =
+    "https://avatars3.githubusercontent.com/u/2792438?s=400&u=15ee750219a917a7dfd4b9f0cd31f49f15a8793e";

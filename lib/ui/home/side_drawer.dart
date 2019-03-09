@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/bloc/bloc_provider.dart';
 import 'package:flutter_todo/ui/about/about_us.dart';
+import 'package:flutter_todo/ui/home/home_bloc.dart';
+import 'package:flutter_todo/utils/app_constant.dart';
 
 class SideDrawer extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    final HomeBloc homeBloc = BlocProvider.of(context);
     return Drawer(
       child: ListView(
         padding: EdgeInsets.all(0.0),
@@ -13,7 +17,7 @@ class SideDrawer extends StatelessWidget{
             accountEmail: Text("minhcuong2910@gmail.com"),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Theme.of(context).accentColor,
-              backgroundImage: NetworkImage("https://avatars3.githubusercontent.com/u/2792438?s=400&u=15ee750219a917a7dfd4b9f0cd31f49f15a8793e")
+              backgroundImage: NetworkImage(PROFILE_PICTURE)
             ),
             otherAccountsPictures: <Widget>[
              IconButton(
@@ -30,10 +34,33 @@ class SideDrawer extends StatelessWidget{
                },
              )
             ]
+          ),
+          ListTile(
+            title: Text("Inbox"),
+            leading: Icon(Icons.inbox),
+            onTap: () {
+              homeBloc.updateTitle("Inbox");
+              Navigator.pop(context);
+            }
+          ),
+          ListTile(
+            title: Text("Today"),
+            leading: Icon(Icons.calendar_today),
+            onTap: () {
+              homeBloc.updateTitle("Today");
+              Navigator.pop(context);
+            }
+          ),
+          ListTile(
+            title: Text("Next 7 days"),
+            leading: Icon(Icons.calendar_today),
+            onTap: () {
+              homeBloc.updateTitle("Next 7 days");
+              Navigator.pop(context);
+            }
           )
         ],
       )
     );
   }
-
 }

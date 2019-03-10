@@ -36,6 +36,9 @@ build/
 **/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
+**/android/app/bin/
+**/android/.project
+**/android/app/.project
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
@@ -62,6 +65,7 @@ build/
 **/ios/Flutter/flutter_assets/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Podfile
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3

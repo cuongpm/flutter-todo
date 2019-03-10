@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/bloc/bloc_provider.dart';
-import 'package:flutter_todo/ui/home/home.dart';
+import 'package:flutter_todo/ui/home/home_page.dart';
 import 'package:flutter_todo/ui/home/home_bloc.dart';
 
 void main() => runApp(MyApp());

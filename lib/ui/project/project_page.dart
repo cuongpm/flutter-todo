@@ -75,6 +75,17 @@ class ProjectRow extends StatelessWidget {
       onTap: () => {
         Navigator.pop(context)
       },
+      leading: Container(
+        width: 24.0,
+        height: 24.0,
+      ),
+      trailing: Container(
+        width: 10.0,
+        height: 10.0,
+        child: CircleAvatar(
+          backgroundColor: Color(project.colorValue),
+        ),
+      ),
     );
   }
 }

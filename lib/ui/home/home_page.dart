@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/bloc/bloc_provider.dart';
+import 'package:flutter_todo/ui/addtask/add_task.dart';
 import 'package:flutter_todo/ui/home/home_bloc.dart';
 import 'package:flutter_todo/ui/home/side_drawer.dart';
 
@@ -22,7 +23,11 @@ class HomePage extends StatelessWidget {
         child: Icon(
           Icons.add,
           color: Colors.white,
-        )
+        ),
+        onPressed: () {
+          Navigator.push(context, 
+          MaterialPageRoute<bool>(builder: (context) => AddTaskScreen()));
+        },
       ),
       drawer: SideDrawer()
     );

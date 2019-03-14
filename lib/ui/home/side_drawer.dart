@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/bloc/bloc_provider.dart';
+import 'package:flutter_todo/data/db/project_db.dart';
 import 'package:flutter_todo/ui/about/about_us.dart';
 import 'package:flutter_todo/ui/home/home_bloc.dart';
+import 'package:flutter_todo/ui/project/project_bloc.dart';
+import 'package:flutter_todo/ui/project/project_page.dart';
 import 'package:flutter_todo/utils/app_constant.dart';
 
 class SideDrawer extends StatelessWidget{
@@ -58,6 +61,10 @@ class SideDrawer extends StatelessWidget{
               homeBloc.updateTitle("Next 7 days");
               Navigator.pop(context);
             }
+          ),
+          BlocProvider(
+            bloc: ProjectBloc(ProjectDB.get()),
+            child: ProjectPage()
           )
         ],
       )

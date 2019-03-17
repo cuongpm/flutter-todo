@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/bloc/bloc_provider.dart';
 import 'package:flutter_todo/data/db/label_db.dart';
+import 'package:flutter_todo/data/model/filter.dart';
 import 'package:flutter_todo/data/model/label.dart';
+import 'package:flutter_todo/ui/home/home_bloc.dart';
 import 'package:flutter_todo/ui/label/add_label.dart';
 import 'package:flutter_todo/ui/label/label_bloc.dart';
 
@@ -66,6 +68,7 @@ class LabelRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeBloc homeBloc = BlocProvider.of(context);
     return ListTile(
       title: Text("@ ${label.name}"),
       leading: Container(
@@ -82,6 +85,7 @@ class LabelRow extends StatelessWidget {
         ),
       ),
       onTap: () {
+        homeBloc.applyFilter("@ ${label.name}", Filter.byLabel(label.name));
         Navigator.pop(context);
       },
     );

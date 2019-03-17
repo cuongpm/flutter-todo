@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/bloc/bloc_provider.dart';
 import 'package:flutter_todo/data/db/project_db.dart';
+import 'package:flutter_todo/data/model/filter.dart';
 import 'package:flutter_todo/data/model/project.dart';
+import 'package:flutter_todo/ui/home/home_bloc.dart';
 import 'package:flutter_todo/ui/project/add_project.dart';
 import 'package:flutter_todo/ui/project/project_bloc.dart';
 
@@ -70,10 +72,12 @@ class ProjectRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeBloc homeBloc = BlocProvider.of(context);
     return ListTile(
       title: Text(project.name),
-      onTap: () => {
-        Navigator.pop(context)
+      onTap: () {
+        homeBloc.applyFilter(project.name, Filter.byProject(project.id));
+        Navigator.pop(context);
       },
       leading: Container(
         width: 24.0,

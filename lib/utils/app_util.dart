@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/utils/app_constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 showSnackbar(GlobalKey<ScaffoldState> scaffoldState, String message,
@@ -15,5 +16,19 @@ launchURL(String url) async {
     await launch(url);
   } else {
     throw "Could not launch $url";
+  }
+}
+
+class MessageInCenterWidget extends StatelessWidget {
+  final String _message;
+
+  MessageInCenterWidget(this._message);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(_message,
+          style: TextStyle(fontSize: FONT_MEDIUM, color: Colors.black)),
+    );
   }
 }

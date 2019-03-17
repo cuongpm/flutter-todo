@@ -16,16 +16,17 @@ class AddTaskScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AddTaskBloc createTaskBloc = BlocProvider.of(context);
     return Scaffold(
+      key: _scaffoldState,
       appBar: AppBar(
         title: Text("Add Task"),
       ),
       body: ListView(
         children: <Widget>[
           Form(
+            key: _formState,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
-                key: _formState,
                 maxLines: null,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(hintText: "Title"),

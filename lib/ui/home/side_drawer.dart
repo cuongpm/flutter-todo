@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_todo/bloc/bloc_provider.dart';
 import 'package:flutter_todo/data/db/label_db.dart';
 import 'package:flutter_todo/data/db/project_db.dart';
+import 'package:flutter_todo/data/model/filter.dart';
+import 'package:flutter_todo/data/model/project.dart';
 import 'package:flutter_todo/ui/about/about_us.dart';
 import 'package:flutter_todo/ui/home/home_bloc.dart';
 import 'package:flutter_todo/ui/label/label_bloc.dart';
@@ -45,7 +47,9 @@ class SideDrawer extends StatelessWidget{
             title: Text("Inbox"),
             leading: Icon(Icons.inbox),
             onTap: () {
-              homeBloc.updateTitle("Inbox");
+              var project = Project.getInbox();
+                homeBloc.applyFilter(
+                    project.name, Filter.byProject(project.id));
               Navigator.pop(context);
             }
           ),
@@ -53,7 +57,7 @@ class SideDrawer extends StatelessWidget{
             title: Text("Today"),
             leading: Icon(Icons.calendar_today),
             onTap: () {
-              homeBloc.updateTitle("Today");
+              homeBloc.applyFilter("Today", Filter.byToday());
               Navigator.pop(context);
             }
           ),
@@ -61,7 +65,7 @@ class SideDrawer extends StatelessWidget{
             title: Text("Next 7 days"),
             leading: Icon(Icons.calendar_today),
             onTap: () {
-              homeBloc.updateTitle("Next 7 days");
+              homeBloc.applyFilter("Next 7 Days", Filter.byNextWeek());
               Navigator.pop(context);
             }
           ),

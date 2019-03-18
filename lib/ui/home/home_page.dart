@@ -7,12 +7,18 @@ import 'package:flutter_todo/ui/addtask/add_task.dart';
 import 'package:flutter_todo/ui/addtask/add_task_bloc.dart';
 import 'package:flutter_todo/ui/home/home_bloc.dart';
 import 'package:flutter_todo/ui/home/side_drawer.dart';
+import 'package:flutter_todo/ui/tasks/tasks_bloc.dart';
+import 'package:flutter_todo/ui/tasks/tasks_page.dart';
 
 class HomePage extends StatelessWidget {
+  final TaskBloc _taskBloc = TaskBloc(TaskDB.get());
 
   @override
   Widget build(BuildContext context) {
     final HomeBloc homeBloc = BlocProvider.of(context);
+    homeBloc.filter.listen((filter) {
+      _taskBloc.updateFilters(filter);
+    });
     return Scaffold(
       appBar: AppBar(
         title: StreamBuilder<String>(
@@ -37,7 +43,11 @@ class HomePage extends StatelessWidget {
           MaterialPageRoute<bool>(builder: (context) => blocProviderAddTask));
         },
       ),
-      drawer: SideDrawer()
+      drawer: SideDrawer(),
+      body: BlocProvider(
+        bloc: _taskBloc,
+        child: TasksPage(),
+      ),
     );
   }
 }

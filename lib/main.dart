@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         accentColor: Colors.orange,
-        primaryColor: Colors.blue,
+        primaryColor: const Color(0xFFDE4435),
       ),
       home: BlocProvider(
         bloc: HomeBloc(),

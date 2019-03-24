@@ -17,6 +17,8 @@
 
 ## Screenshots
 
+<img src="android/screenshots/screenshot_1.png" width="210"> <img src="android/screenshots/screenshot_2.png" width="210"> <img src="android/screenshots/screenshot_3.png" width="210"> <img src="android/screenshots/screenshot_4.png" width="210"> <img src="android/screenshots/screenshot_5.png" width="210"> <img src="android/screenshots/screenshot_6.png" width="210"> <img src="android/screenshots/screenshot_7.png" width="210"> <img src="android/screenshots/screenshot_8.png" width="210">
+
 ## Credits
 
 - [Todoist](https://twitter.com/todoist) app
